@@ -165,6 +165,18 @@ readData();
 </script>
 
 <style>
+
+p{
+    margin: 0px
+}
+
+#intructions{
+    padding: 20px;
+    background-color: #1dd1a1;
+}
+
+
+
 #header{
     text-align: center;
     padding-top: 40px;
@@ -172,6 +184,10 @@ readData();
     background-color: #54a0ff;
     color: white;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+#favorites{
+    display: block;
 }
 
 .favorite_button{
@@ -216,26 +232,25 @@ button:hover{
 
 </style>
 
-
+<div id = 'intructions'>
+<p><strong>Instructions: </strong>Search for any type of food in any location to see the top seven results below. Add yourself as a user by typing your username in the grey "here" box below. See your own and other users' favorite locations by selecting their username from the dropdown menu and checking the "Your Favorites" card.</p>
+</div>
 
 <div id="header">
 <form method="POST">
     <h1><span id="itinerary" contenteditable="true">Your itinerary</span></h1>
-<input id="inputBox" name="inputBox" />
-<input id="inputBoxLocation" name="inputBoxLocation" />
+<input id="inputBox" name="inputBox" placeholder="Search for food!" />
+<input id="inputBoxLocation" name="inputBoxLocation" placeholder="Where?" />
 <button type="submit">Search</button>
 <input type="hidden" value="" id="stringHolder" name="stringHolder" />
 
 </form>
-<button onclick="createUser();">Create User</button>
-
 
 
 <select id="users" onchange="readData();">
- 
-
 </select>
-    <h4>By: <span contenteditable="true" id="creatorName">Your name here</span></h4>
+<button onclick="createUser();">Create User</button>
+    <h4>Create a new user <span style = 'color: #576574;' contenteditable="true" id="creatorName">here</span></h4>
 <h4>Number of results: {{count}}</h4>
 <br>
 </div>
@@ -254,8 +269,8 @@ button:hover{
 {{/each}}
 
 
-
-<div id='sidebar'>
-
-
+<div class = 'results'>
+    <h2>Your favorites</h2>
+    <div id='sidebar'></div>
 </div>
+
